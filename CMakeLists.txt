@@ -8,14 +8,5 @@ project (UnicodeConverter
   DESCRIPTION "UnicodeConverter Library"
   LANGUAGES CXX)
 
-add_library(UnicodeConverter STATIC
-  include/UnicodeConverter.hpp
-  src/UnicodeConverter.cpp
-)
-
-target_include_directories(UnicodeConverter
-PUBLIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-
-target_link_libraries(UnicodeConverter)
+add_library(${PROJECT_NAME} INTERFACE include/UnicodeConverter.hpp)
+set_target_properties(${PROJECT_NAME} PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/include)
